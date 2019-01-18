@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final CircleProgressView view = findViewById(R.id.view);
+        final CircleProgressView progressView = findViewById(R.id.view);
         final EditText progressEt = findViewById(R.id.progress_et);
         final EditText colorEt = findViewById(R.id.color_et);
         final EditText widthEt = findViewById(R.id.width_et);
@@ -29,38 +29,39 @@ public class MainActivity extends AppCompatActivity {
         final EditText endEt = findViewById(R.id.end_et);
         TextView tv = findViewById(R.id.tv);
         final TextView progressTv = findViewById(R.id.progress_tv);
-        final CheckBox cb = findViewById(R.id.cb);
+        final CheckBox animCb = findViewById(R.id.anim_cb);
         final CheckBox typeCb = findViewById(R.id.type_cb);
         final CheckBox capCb = findViewById(R.id.cap_cb);
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!TextUtils.isEmpty(angleEt.getText().toString())) {
-                    view.setStartAngle(Integer.valueOf(angleEt.getText().toString()));
+                    progressView.setStartAngle(Integer.valueOf(angleEt.getText().toString()));
                 }
                 if (!TextUtils.isEmpty(colorEt.getText().toString())) {
-                    view.setProgressColor(Color.parseColor(colorEt.getText().toString()));
+                    progressView.setProgressColor(Color.parseColor(colorEt.getText().toString()));
                 }
                 if (!TextUtils.isEmpty(backgroundEt.getText().toString())) {
-                    view.setBackgroundCircleColor(Color.parseColor(backgroundEt.getText().toString()));
+                    progressView.setBackgroundCircleColor(Color.parseColor(backgroundEt.getText().toString()));
                 }
                 if (!TextUtils.isEmpty(widthEt.getText().toString())) {
-                    view.setProgressWidth(CommonUtil.dp2px(MainActivity.this, Integer.valueOf(widthEt.getText().toString())));
+                    progressView.setProgressWidth(CommonUtil.dp2px(MainActivity.this, Integer.valueOf(widthEt.getText().toString())));
                 }
                 if (!TextUtils.isEmpty(durationEt.getText().toString())) {
-                    view.setDuration(Integer.valueOf(durationEt.getText().toString()));
+                    progressView.setDuration(Integer.valueOf(durationEt.getText().toString()));
                 }
                 if (!TextUtils.isEmpty(endEt.getText().toString())) {
-                    view.setEndAngle(Integer.valueOf(endEt.getText().toString()));
+                    progressView.setEndAngle(Integer.valueOf(endEt.getText().toString()));
                 }
-                view.setProgressType(typeCb.isChecked() ? CircleProgressView.TYPE_CLIP : CircleProgressView.TYPE_CIRCLE);
-                view.setCap(capCb.isChecked() ? Paint.Cap.ROUND : Paint.Cap.BUTT);
+                progressView.setProgressType(typeCb.isChecked() ? CircleProgressView.TYPE_CLIP : CircleProgressView.TYPE_CIRCLE);
+                progressView.setCap(capCb.isChecked() ? Paint.Cap.ROUND : Paint.Cap.BUTT);
                 if (!TextUtils.isEmpty(progressEt.getText().toString())) {
-                    view.setProgress(Integer.parseInt(progressEt.getText().toString()), cb.isChecked());
+                    progressView.setProgress(Integer.parseInt(progressEt.getText().toString()), animCb.isChecked());
+                    progressTv.setVisibility(animCb.isChecked() ? View.VISIBLE : View.GONE);
                 }
             }
         });
-        view.setOnProgressChangedListener(new CircleProgressView.OnProgressChangedListener() {
+        progressView.setOnProgressChangedListener(new CircleProgressView.OnProgressChangedListener() {
             @Override
             public void onProgressChanged(float currentProgress) {
                 progressTv.setText((int) (currentProgress) + "%");

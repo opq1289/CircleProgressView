@@ -7,7 +7,6 @@
         <attr name="startAngle" format="integer"/>
         <attr name="endAngle" format="integer"/>
         <attr name="animation" format="boolean"/>
-        <attr name="totalProgress" format="integer"/>
         <attr name="duration" format="integer"/>
     </declare-styleable>
 </resources>
