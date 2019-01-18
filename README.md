@@ -6,17 +6,17 @@
 
 无动画：
 
-![noanim_union](/Users/wj/Desktop/custom_view/CircleProgressView/images/noanim_union.png)
+![noanim_union](https://github.com/opq1289/CircleProgressView/blob/master/images/noanim_union.png)
 
 有动画：
 
 整圆：
 
-![progress_anim](/Users/wj/Desktop/custom_view/CircleProgressView/images/progress_anim.gif)
+![progress_anim](https://github.com/opq1289/CircleProgressView/blob/master/images/progress_anim.gif)
 
 切割圆：
 
-![clip_anim](/Users/wj/Desktop/custom_view/CircleProgressView/images/clip_anim.gif)
+![clip_anim](https://github.com/opq1289/CircleProgressView/blob/master/images/clip_anim.gif)
 
 ##### 引入方式：
 
